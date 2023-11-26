@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.spikybumjolteon.pokemonmd.common.core.ModBlocks;
 import net.spikybumjolteon.pokemonmd.common.core.ModCreativeModeTab;
 import net.spikybumjolteon.pokemonmd.common.core.ModItems;
 import net.spikybumjolteon.pokemonmd.common.core.ModRegistry;
@@ -27,6 +28,7 @@ public class PokemonMD
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModCreativeModeTab.TABS.register(modEventBus);
+        ModBlocks.BLOCKS.register(modEventBus);
         ModItems.ITEMS.register(modEventBus);
 
 

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "pokemonmd:block/packed_aurum_dust"
+  }
+}
