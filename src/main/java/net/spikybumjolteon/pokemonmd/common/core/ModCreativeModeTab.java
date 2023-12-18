@@ -8,7 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
-import net.spikybumjolteon.pokemonmd.common.item.CreativeTabStackProvider;
+import net.spikybumjolteon.pokemonmd.common.core.item.CreativeTabStackProvider;
 
 import java.util.ArrayList;
 import java.util.Comparator;

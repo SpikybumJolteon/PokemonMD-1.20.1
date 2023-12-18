@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "pokemonmd:packed_aurum_dust"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "pokemonmd:aurum_dust"
+  }
+}

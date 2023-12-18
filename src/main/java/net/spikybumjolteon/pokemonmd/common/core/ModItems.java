@@ -4,6 +4,7 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.spikybumjolteon.pokemonmd.common.core.item.ModFuelItem;
 
 import java.util.function.Supplier;
 
@@ -13,6 +14,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> AURUM_DUST = register( "aurum_dust");
     public static final RegistryObject<Item> AURUM_ROD = register( "aurum_rod");
+    public static final RegistryObject<Item> INFERNO_FUEL_ROD = registerFuel( "inferno_fuel_rod", 1600);
 
     /* -----------------------*/
     private static <T extends Item> RegistryObject<T> register(final String name, final Supplier<T> sup) {
@@ -29,6 +31,10 @@ public class ModItems {
 
     public static Item.Properties defaultUnstackableProps() {
         return defaultProps().stacksTo(1);
+    }
+
+    private static RegistryObject<Item> registerFuel(final String name, int burnTime) {
+        return register(name, () -> new ModFuelItem(defaultProps(), burnTime));
     }
 /*
     public static Item.Properties defaultSummonProps()

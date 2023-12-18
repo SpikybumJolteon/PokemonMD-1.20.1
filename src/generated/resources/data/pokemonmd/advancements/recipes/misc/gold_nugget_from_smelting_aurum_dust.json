@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_aurum_dust": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "pokemonmd:aurum_dust"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "pokemonmd:gold_nugget_from_smelting_aurum_dust"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_aurum_dust",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "pokemonmd:gold_nugget_from_smelting_aurum_dust"
+    ]
+  },
+  "sends_telemetry_event": false
+}

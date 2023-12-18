@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "group": "gold_nugget_from_aurum_dust",
+  "ingredient": {
+    "item": "pokemonmd:aurum_dust"
+  },
+  "result": "minecraft:gold_nugget"
+}
