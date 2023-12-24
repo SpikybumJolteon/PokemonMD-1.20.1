@@ -2,8 +2,20 @@
   "item.pokemonmd.aurum_dust": "Aurum Dust",
   "item.pokemonmd.aurum_rod": "Aurum Rod",
   "item.pokemonmd.inferno_fuel_rod": "Inferno Fuel Rod",
+  "item.pokemonmd.pokezerg_sample": "Pokezerg Sample",
+  "item.pokemonmd.regenerative_biosteel": "Regenerative Biosteel",
+
+  "item.pokemonmd.biosteel_axe": "Biosteel Axe",
+  "item.pokemonmd.biosteel_hoe": "Biosteel Hoe",
+  "item.pokemonmd.biosteel_pickaxe": "Biosteel Pickaxe",
+  "item.pokemonmd.biosteel_shovel": "Biosteel Shovel",
+  "item.pokemonmd.biosteel_sword": "Biosteel Sword",
 
   "block.pokemonmd.packed_aurum_dust": "Packed Aurum Dust",
 
-  "creativetab.pokemonmd_tab": "PokemonMD Tab"
+  "creativetab.pokemonmd_tab": "PokemonMD Tab",
+
+  "tooltip.pokemonmd.pokezerg_sample_tooltip": "Rare biological sample from a Pokezerg.",
+  "tooltip.pokemonmd.regenerative_biosteel_tooltip": "Iron ingot infused with Pokezerg flesh.",
+  "tooltip.pokemonmd.biosteel_tooltip": "Iron grade tool: Restores durability over time in inventory."
 }

@@ -21,6 +21,14 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.AURUM_DUST);
         simpleItem(ModItems.AURUM_ROD);
         simpleItem(ModItems.INFERNO_FUEL_ROD);
+        simpleItem(ModItems.POKEZERG_SAMPLE);
+        simpleItem(ModItems.REGENERATIVE_BIOSTEEL);
+
+        handheldItem(ModItems.BIOSTEEL_AXE);
+        handheldItem(ModItems.BIOSTEEL_HOE);
+        handheldItem(ModItems.BIOSTEEL_PICKAXE);
+        handheldItem(ModItems.BIOSTEEL_SHOVEL);
+        handheldItem(ModItems.BIOSTEEL_SWORD);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
@@ -28,4 +36,11 @@ public class ModItemModelProvider extends ItemModelProvider {
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(ModRegistry.MOD_ID, "item/" + item.getId().getPath()));
     }
+
+    private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/handheld")).texture("layer0",
+                new ResourceLocation(ModRegistry.MOD_ID, "item/" + item.getId().getPath()));
+    }
+
 }

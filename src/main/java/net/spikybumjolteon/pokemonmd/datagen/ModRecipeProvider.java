@@ -52,6 +52,41 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 'B', Items.BLAZE_POWDER,
                 'A', ModItems.AURUM_ROD.get()
         ).save(consumer);
+
+        shapeless(ModItems.REGENERATIVE_BIOSTEEL.get(), 1, ModItems.AURUM_DUST.get(),
+                ModItems.POKEZERG_SAMPLE.get(),
+                Items.IRON_INGOT
+        ).save(consumer);
+
+        shaped(ModItems.BIOSTEEL_AXE.get(), ModItems.REGENERATIVE_BIOSTEEL.get(),
+                "BB/BS/ S",
+                'B', ModItems.REGENERATIVE_BIOSTEEL.get(),
+                'S', Items.STICK
+        ).save(consumer);
+
+        shaped(ModItems.BIOSTEEL_HOE.get(), ModItems.REGENERATIVE_BIOSTEEL.get(),
+                "BB/ S/ S",
+                'B', ModItems.REGENERATIVE_BIOSTEEL.get(),
+                'S', Items.STICK
+        ).save(consumer);
+
+        shaped(ModItems.BIOSTEEL_PICKAXE.get(), ModItems.REGENERATIVE_BIOSTEEL.get(),
+                "BBB/ S / S ",
+                'B', ModItems.REGENERATIVE_BIOSTEEL.get(),
+                'S', Items.STICK
+        ).save(consumer);
+
+        shaped(ModItems.BIOSTEEL_SHOVEL.get(), ModItems.REGENERATIVE_BIOSTEEL.get(),
+                "B/S/S",
+                'B', ModItems.REGENERATIVE_BIOSTEEL.get(),
+                'S', Items.STICK
+        ).save(consumer);
+
+        shaped(ModItems.BIOSTEEL_SWORD.get(), ModItems.REGENERATIVE_BIOSTEEL.get(),
+                "B/B/S",
+                'B', ModItems.REGENERATIVE_BIOSTEEL.get(),
+                'S', Items.STICK
+        ).save(consumer);
     }
 
     private String getId(String s) {
