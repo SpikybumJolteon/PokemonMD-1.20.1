@@ -5,6 +5,8 @@
   "item.pokemonmd.pokezerg_sample": "Pokezerg Sample",
   "item.pokemonmd.regenerative_biosteel": "Regenerative Biosteel",
 
+  "item.pokemonmd.oranian_berry": "Oranian Berry",
+
   "item.pokemonmd.biosteel_axe": "Biosteel Axe",
   "item.pokemonmd.biosteel_hoe": "Biosteel Hoe",
   "item.pokemonmd.biosteel_pickaxe": "Biosteel Pickaxe",
@@ -17,5 +19,8 @@
 
   "tooltip.pokemonmd.pokezerg_sample_tooltip": "Rare biological sample from a Pokezerg.",
   "tooltip.pokemonmd.regenerative_biosteel_tooltip": "Iron ingot infused with Pokezerg flesh.",
-  "tooltip.pokemonmd.biosteel_tooltip": "Iron grade tool: Restores durability over time in inventory."
+  "tooltip.pokemonmd.biosteel_tooltip": "Iron grade tool: Restores durability over time in inventory.",
+
+  "tooltip.pokemonmd.revive_seed_tooltip": "Toss onto a Poketamable summon item on the ground in order to revive it.",
+  "tooltip.pokemonmd.oranian_berry_tooltip": "A berry food item that heals health. Can be given to Poketamable as well."
 }

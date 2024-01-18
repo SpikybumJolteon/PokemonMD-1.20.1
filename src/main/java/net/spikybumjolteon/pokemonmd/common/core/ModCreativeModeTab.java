@@ -6,6 +6,7 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.CropBlock;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.spikybumjolteon.pokemonmd.common.core.item.CreativeTabStackProvider;
@@ -48,7 +49,7 @@ public class ModCreativeModeTab {
     private static class ItemSorter implements Comparator<ItemStack> {
         @Override
         public int compare(ItemStack s1, ItemStack s2) {
-            for (Class<?> cls : List.of(BlockItem.class)) {//{PressurizableItem.class, CompressedIronArmorItem.class, PneumaticArmorItem.class, SemiblockItem.class, AbstractGunAmmoItem.class, UpgradeItem.class, TubeModuleItem.class, PneumaticCraftBucketItem.class)) {
+            for (Class<?> cls : List.of(BlockItem.class)) {
                 if (cls.isAssignableFrom(s1.getItem().getClass()) && !cls.isAssignableFrom(s2.getItem().getClass())) {
                     return -1;
                 } else if (cls.isAssignableFrom(s2.getItem().getClass()) && !cls.isAssignableFrom(s1.getItem().getClass())) {
@@ -58,25 +59,4 @@ public class ModCreativeModeTab {
             return s1.getDisplayName().getString().compareTo(s2.getDisplayName().getString());
         }
     }
-
-    /*
-
-        public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
-            DeferredRegister.create(Registries.CREATIVE_MODE_TAB, PokemonMD.MOD_ID);
-
-
-    public static final RegistryObject<CreativeModeTab> POKEMONMD_TAB = CREATIVE_MODE_TABS.register("pokemonmd_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.AURUM_DUST.get()))
-                    .title(Component.translatable("creativetab.pokemonmd_tab"))
-                    .displayItems((pParameters, pOutput) -> {
-                        pOutput.accept(ModItems.AURUM_DUST.get());
-                        pOutput.accept(ModItems.AURUM_ROD.get());
-                    })
-                    .build());
-
-    public static void register(IEventBus eventBus) {
-        CREATIVE_MODE_TABS.register(eventBus);
-    }
-    */
-
 }

@@ -1,4 +1,4 @@
-// 1.20.1	2023-12-24T16:58:20.0459321	Item Models: pokemonmd
+// 1.20.1	2024-01-07T14:11:28.4770623	Item Models: pokemonmd
 f93812328e090f0b6c0a72a0530b6c58d4812002 assets/pokemonmd/models/item/aurum_dust.json
 8ce1c23996c7cc404c30aa7ba6c90e112693d24a assets/pokemonmd/models/item/aurum_rod.json
 0f15d869c309950c0dc46f04000e7051e72383a1 assets/pokemonmd/models/item/biosteel_axe.json
@@ -7,5 +7,7 @@ a084f151b3b4a1ec5dfc8d641e9df3899d2c0749 assets/pokemonmd/models/item/biosteel_p
 2e05a0fc2a95a9200b3d487fef696b631bcd86ec assets/pokemonmd/models/item/biosteel_shovel.json
 745ffdd390c4b426acc3e2be2de360e07bdf2123 assets/pokemonmd/models/item/biosteel_sword.json
 6d6fd9b6fdb37d5563960211a04c48133c1cddf6 assets/pokemonmd/models/item/inferno_fuel_rod.json
+4df3656b80eeb5f72354476bffdc780af5f352fd assets/pokemonmd/models/item/oranian_berry.json
 9e83c99baf28d9ff08a45e99392264d9992d316d assets/pokemonmd/models/item/pokezerg_sample.json
 89796169b8323de4625ea86425dbd50609b8d838 assets/pokemonmd/models/item/regenerative_biosteel.json
+00d7a8a77345d9334b142476c0b90d8838ea518f assets/pokemonmd/models/item/revive_seed.json

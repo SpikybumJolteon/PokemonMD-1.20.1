@@ -1,16 +1,19 @@
 package net.spikybumjolteon.pokemonmd.datagen;
 
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.data.loot.LootTableSubProvider;
+import net.minecraft.data.loot.packs.VanillaBlockLoot;
+import net.minecraft.data.loot.packs.VanillaLootTableProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.ValidationContext;
@@ -18,17 +21,20 @@ import net.minecraft.world.level.storage.loot.entries.EmptyLootItem;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
-import net.minecraft.world.level.storage.loot.functions.CopyNameFunction;
-import net.minecraft.world.level.storage.loot.functions.EnchantRandomlyFunction;
-import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.functions.SetNbtFunction;
+import net.minecraft.world.level.storage.loot.functions.*;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.ExplosionCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.spikybumjolteon.pokemonmd.common.core.ModBlocks;
+import net.spikybumjolteon.pokemonmd.common.core.ModItems;
+import net.spikybumjolteon.pokemonmd.common.core.block.OranianBerryCropBlock;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,11 +50,6 @@ public class ModLootTableProvider extends LootTableProvider {
         ));
     }
 
-//    @Override
-//    protected void validate(Map<ResourceLocation, LootTable> map, ValidationContext validationresults) {
-//        // ...
-//    }
-
     private static class BlockLootTablePokemonMD extends BlockLootSubProvider {
         public BlockLootTablePokemonMD() {
             super(Set.of(), FeatureFlags.DEFAULT_FLAGS);
@@ -58,14 +59,27 @@ public class ModLootTableProvider extends LootTableProvider {
         protected void generate() {
             for (RegistryObject<Block> ro : ModBlocks.BLOCKS.getEntries()) {
                 Block b = ro.get();
-//                if (b instanceof PneumaticCraftEntityBlock && ForgeRegistries.ITEMS.containsKey(ro.getId())) {
-//                    addStandardSerializedDrop(b, ro.getId());
-//                } else if (b instanceof SlabBlock) {
-//                    add(b, this::createSlabItemTable);
-//                } else if (b.asItem() != Items.AIR) {
+                if (!(b instanceof CropBlock))
+                {
                 dropSelf(b);
-//                }
+                }
             }
+
+            LootItemCondition.Builder lootitemcondition$builder = LootItemBlockStatePropertyCondition
+                    .hasBlockStateProperties(ModBlocks.ORANIAN_BERRY_CROP.get())
+                    .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(OranianBerryCropBlock.AGE, OranianBerryCropBlock.MAX_AGE));
+
+//            this.add(ModBlocks.ORANIAN_BERRY_CROP.get(), createCropDrops(ModBlocks.ORANIAN_BERRY_CROP.get(), ModItems.REVIVE_SEED.get(),
+//                            ModItems.ORANIAN_BERRY.get(), lootitemcondition$builder));
+            this.add(ModBlocks.ORANIAN_BERRY_CROP.get(), this.applyExplosionDecay(ModBlocks.ORANIAN_BERRY_CROP.get(),
+                    LootTable.lootTable().withPool(LootPool.lootPool()
+                            .add(LootItem.lootTableItem(ModItems.ORANIAN_BERRY.get())))
+                            .withPool(LootPool.lootPool().when(lootitemcondition$builder)
+                                    .add(LootItem.lootTableItem(ModItems.ORANIAN_BERRY.get())
+                                            .apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5714286F, 3))))
+                            .withPool(LootPool.lootPool().when(lootitemcondition$builder).add(LootItem.lootTableItem(ModItems.REVIVE_SEED.get())
+                                    .when(LootItemRandomChanceCondition.randomChance(0.9F))))));
+
         }
 
         @Override
@@ -78,43 +92,6 @@ public class ModLootTableProvider extends LootTableProvider {
             }
             return l;
         }
-
-//        private void addStandardSerializedDrop(Block block, ResourceLocation blockId) {
-//            LootPool.Builder builder = LootPool.lootPool()
-//                    .name(blockId.getPath())
-//                    .when(ExplosionCondition.survivesExplosion())
-//                    .setRolls(ConstantValue.exactly(1))
-//                    .add(LootItem.lootTableItem(block)
-//                            .apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY))
-//                            .apply(LootFunc.BlockEntitySerializerFunction.builder()));
-//            add(block, LootTable.lootTable().withPool(builder));
-//        }
-
-
-//    public static class MechanicVillagerChestLootProvider implements LootTableSubProvider {
-//        @Override
-//        public void generate(BiConsumer<ResourceLocation, LootTable.Builder> consumer) {
-//            LootPool.Builder lootPool = LootPool.lootPool();
-//            lootPool.setRolls(ConstantValue.exactly(4))
-//                    .add(createEntry(ModItems.COMPRESSED_IRON_INGOT.get(), 10, 4, 12))
-//                    .add(createEntry(ModItems.AMADRON_TABLET.get(), 2, 1, 1))
-//                    .add(createEntry(ModItems.AIR_CANISTER.get(), 10, 1, 5))
-//                    .add(createEntry(ModItems.PNEUMATIC_CYLINDER.get(), 5, 2, 4))
-//                    .add(createEntry(ModItems.LOGISTICS_CORE.get(), 8, 4, 8))
-//                    .add(createEntry(ModItems.CAPACITOR.get(), 4, 4, 8))
-//                    .add(createEntry(ModItems.TRANSISTOR.get(), 4, 4, 8))
-//                    .add(createEntry(ModItems.TURBINE_ROTOR.get(), 5, 2, 4))
-//                    .add(createEntry(ModBlocks.COMPRESSED_IRON_BLOCK.get(), 2, 1, 2))
-//                    .add(createEntry(ModBlocks.VORTEX_TUBE.get(), 5, 1, 1))
-//                    .add(createEntry(ModBlocks.PRESSURE_TUBE.get(), 10, 3, 8))
-//                    .add(createEntry(ModBlocks.ADVANCED_PRESSURE_TUBE.get(), 4, 3, 8))
-//                    .add(createEntry(ModBlocks.HEAT_PIPE.get(), 8, 3, 8))
-//                    .add(createEntry(ModBlocks.APHORISM_TILE.get(), 5, 2, 3));
-//
-//            LootTable.Builder lootTable = LootTable.lootTable();
-//            lootTable.withPool(lootPool);
-//            consumer.accept(RL("chests/mechanic_house"), lootTable);
-//        }
 
         private LootPoolEntryContainer.Builder<?> createEntry(ItemLike item, int weight, int min, int max) {
             return createEntry(new ItemStack(item), weight)

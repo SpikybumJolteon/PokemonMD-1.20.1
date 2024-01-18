@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.spikybumjolteon.pokemonmd.common.core.block.OranianBerryCropBlock;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -41,32 +42,6 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> PACKED_AURUM_DUST = register("packed_aurum_dust",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)));
-
- /*   public static final RegistryObject<AirCannonBlock> AIR_CANNON = register("air_cannon",
-            AirCannonBlock::new);*/
-/*
-    public static Block.Properties defaultProps() {
-        return Block.Properties.of()
-                .mapColor(MapColor.METAL)
-                .strength(3f, 10f)
-                .sound(SoundType.METAL);
-    }*/
-
-    /*
-    public static final RegistryObject<Block> PACKED_AURUM_DUST = registerBlock("packed_aurum_dust",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.SAND)));
-
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn);
-        return toReturn;
-    }
-
-    private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
-    }
-
-    public static void register(IEventBus eventBus) {
-        BLOCKS.register(eventBus);
-    }*/
+    public static final RegistryObject<Block> ORANIAN_BERRY_CROP = registerNoItem("oranian_berry_crop",
+            () -> new OranianBerryCropBlock(BlockBehaviour.Properties.copy(Blocks.POTATOES).noOcclusion().noCollission()));
 }

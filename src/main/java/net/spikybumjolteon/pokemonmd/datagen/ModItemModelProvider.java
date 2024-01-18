@@ -23,6 +23,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.INFERNO_FUEL_ROD);
         simpleItem(ModItems.POKEZERG_SAMPLE);
         simpleItem(ModItems.REGENERATIVE_BIOSTEEL);
+        simpleItem(ModItems.ORANIAN_BERRY);
+        simpleItem(ModItems.REVIVE_SEED);
 
         handheldItem(ModItems.BIOSTEEL_AXE);
         handheldItem(ModItems.BIOSTEEL_HOE);

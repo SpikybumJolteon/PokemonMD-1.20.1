@@ -25,18 +25,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
 
-//        addItemsToTag(PneumaticCraftTags.Items.BASIC_DRONES,
-//                ModItems.LOGISTICS_DRONE, ModItems.GUARD_DRONE, ModItems.HARVESTING_DRONE, ModItems.COLLECTOR_DRONE
-//        );
-
-//        appendToTag(Tags.Items.INGOTS, PneumaticCraftTags.Items.INGOTS_COMPRESSED_IRON);
-
-//        addItemsToTag(ItemTags.FREEZE_IMMUNE_WEARABLES,
-//                ModItems.COMPRESSED_IRON_HELMET, ModItems.COMPRESSED_IRON_CHESTPLATE,
-//                ModItems.COMPRESSED_IRON_LEGGINGS, ModItems.COMPRESSED_IRON_BOOTS,
-//                ModItems.PNEUMATIC_HELMET, ModItems.PNEUMATIC_CHESTPLATE,
-//                ModItems.PNEUMATIC_LEGGINGS, ModItems.PNEUMATIC_BOOTS
-//        );
     }
 
     @SafeVarargs

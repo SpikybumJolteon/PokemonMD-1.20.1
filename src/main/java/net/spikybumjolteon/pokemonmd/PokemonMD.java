@@ -21,7 +21,6 @@ import org.slf4j.Logger;
 @Mod(ModRegistry.MOD_ID)
 public class PokemonMD
 {
-    //public static final String MOD_ID = "pokemonmd";
     private static final Logger LOGGER = LogUtils.getLogger();
 
     public PokemonMD() {
